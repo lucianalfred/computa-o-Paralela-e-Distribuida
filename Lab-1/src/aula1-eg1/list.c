@@ -67,6 +67,11 @@ void lst_print(list_t *list)
 	printf("-- end of list.\n");
 }
 
+//--------------------------------------------------------------
+// implementacao da funcao update_terminated_process
+//--------------------------------------------------------------
+
+
 void update_terminated_process(list_t *list, int pid, time_t endtime)
 {
     lst_iitem_t *item;
