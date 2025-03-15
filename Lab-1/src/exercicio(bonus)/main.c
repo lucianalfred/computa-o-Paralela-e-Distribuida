@@ -1,48 +1,82 @@
 #include "t_task.h"
 #include <string.h>
 
+#define MAX_INPUT_SIZE 100
+#define MAX_ID_SIZE 50
+
 int main() {
-    task_t *tasks[MAX_PRIORITY + 1] = {NULL}; // Listas para cada prioridade (0 a 5)
-    char command[20], id[50];
+    task_t *tasks[MAX_PRIORITY + 1] = {NULL}; 
+    char input[MAX_INPUT_SIZE];
+    char command[20], id[MAX_ID_SIZE];
     int priority;
 
     while (1) {
-        printf("Comando (new/list/complete/exit): ");
-        scanf("%s", command);
+        if (fgets(input, sizeof(input), stdin) == NULL) {
+            break; 
+        }
+
+        
+        input[strcspn(input, "\n")] = '\0';
+
+        
+        if (sscanf(input, "%s", command) != 1) {
+            continue; 
+        }
 
         if (strcmp(command, "new") == 0) {
-            printf("Prioridade (0-5) e ID: ");
-            scanf("%d %s", &priority, id);
+            
+            if (sscanf(input, "%*s %d %s", &priority, id) != 2) {
+                continue; 
+            }
             if (priority < 0 || priority > MAX_PRIORITY) {
-                fprintf(stderr, "Prioridade inválida! Deve ser entre 0 e 5.\n");
-                continue;
+                continue; 
             }
             insertTask(&tasks[priority], id, priority);
-            printf("Tarefa adicionada.\n");
         } else if (strcmp(command, "list") == 0) {
-            printf("Prioridade mínima: ");
-            scanf("%d", &priority);
+          
+            if (sscanf(input, "%*s %d", &priority) != 1) {
+                continue; 
+            }
             if (priority < 0 || priority > MAX_PRIORITY) {
-                fprintf(stderr, "Prioridade inválida! Deve ser entre 0 e 5.\n");
-                continue;
+                continue; 
             }
             for (int i = MAX_PRIORITY; i >= priority; i--) {
                 printTasksByPriority(tasks[i], priority);
             }
         } else if (strcmp(command, "complete") == 0) {
-            printf("ID da tarefa: ");
-            scanf("%s", id);
+            
+            if (sscanf(input, "%*s %s", id) != 1) {
+                continue;             }
+            int found = 0;
             for (int i = 0; i <= MAX_PRIORITY; i++) {
-                removeTask(&tasks[i], id);
+                task_t *prev = NULL;
+                task_t *current = tasks[i];
+                while (current != NULL) {
+                    if (strcmp(current->id, id) == 0) {
+                        if (prev == NULL) {
+                            tasks[i] = current->next;
+                        } else {
+                            prev->next = current->next;
+                        }
+                        free(current);
+                        found = 1;
+                        break;
+                    }
+                    prev = current;
+                    current = current->next;
+                }
+                if (found) break;
+            }
+            if (!found) {
+                fprintf(stderr, "TAREFA INEXISTENTE\n");
             }
         } else if (strcmp(command, "exit") == 0) {
+           
             break;
-        } else {
-            fprintf(stderr, "Comando inválido!\n");
         }
     }
 
-    // Libera a memória de todas as listas
+   
     for (int i = 0; i <= MAX_PRIORITY; i++) {
         freeList(tasks[i]);
     }
