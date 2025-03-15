@@ -62,7 +62,7 @@ CPD/
 Contribuições são bem-vindas! Sinta-se à vontade para abrir um **Pull Request** ou sugerir melhorias na **Issues**.
 
 ## Autor
-Desenvolvido por [Seu Nome].
+Desenvolvido por Luciano Alfredo.
 
 ## Licença
 Este projeto é licenciado sob a MIT License - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
