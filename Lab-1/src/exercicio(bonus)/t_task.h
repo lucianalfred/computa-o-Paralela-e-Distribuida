@@ -6,7 +6,7 @@
 #include <string.h>
 #include <time.h>
 
-#define MAX_PRIORITY 5
+#define MAX_PRIORITY 2
 
 typedef struct task_t {
     char id[50]; 

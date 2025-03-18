@@ -4,7 +4,7 @@ task_t* createTask(const char *id, int priority) {
     task_t *new_task = (task_t *)malloc(sizeof(task_t));
     if (!new_task) {
         fprintf(stderr, "Erro de memória!\n");
-        exit(EXIT_FAILURE);
+        exit(1);
     }
 
     strncpy(new_task->id, id, sizeof(new_task->id) - 1);
@@ -62,7 +62,8 @@ void removeTask(task_t **head, const char *id) {
         return;
     }
 
-        prev->next = temp->next;
+    prev->next = temp->next;
+    *head = prev;
     free(temp);
 }
 
