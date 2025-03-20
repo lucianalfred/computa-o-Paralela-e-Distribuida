@@ -1,6 +1,4 @@
-Claro! Vou explicar detalhadamente o algoritmo serial para a simulação de partículas, cobrindo cada ponto e a lógica por trás de cada etapa. O objetivo é que você entenda claramente como o algoritmo funciona antes de implementá-lo.
 
----
 
 ### **1. Visão Geral do Algoritmo Serial**
 O algoritmo serial simula o movimento de partículas em um espaço 2D, onde as partículas interagem gravitacionalmente. A simulação é dividida em passos de tempo, e em cada passo, as seguintes operações são realizadas:
