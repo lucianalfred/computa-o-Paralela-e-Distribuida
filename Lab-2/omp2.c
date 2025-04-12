@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
     V[i]= 0.0 + i;
   }
 
-  double *V1 = (double *) malloc(TOTALSIZE * sizeof(double));
+double *V1 = (double *) malloc(TOTALSIZE * sizeof(double));
 double *V2 = (double *) malloc(TOTALSIZE * sizeof(double));
 
 // inicializar V1
