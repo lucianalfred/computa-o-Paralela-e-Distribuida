@@ -1,0 +1,21 @@
+-r
+/home/luciano-alfredo/Documentos/2-Projectos/6-Projecto CPD/computa-o-Paralela-e-Distribuida/Projeto_final/serial_version/r001hs_pesada
+--stack-stitching
+--data-limit-mb=1000
+--disk-space-limit=0
+--mrte-type=java,python
+--stack-unwind-limit=8388608
+--itt-config=frame
+--itt-config=task,event,counter
+--stackwalk=offline
+--mrte-mode=auto
+--type=cpu:counters:nostack
+--type=cpu:stack
+--interval=10
+--
+./programa
+99
+300.0
+30
+20000
+100

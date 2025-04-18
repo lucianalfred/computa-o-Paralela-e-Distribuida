@@ -1,0 +1,16 @@
+-r
+/home/luciano-alfredo/Documentos/2-Projectos/6-Projecto CPD/computa-o-Paralela-e-Distribuida/exercicios/Teste/r000ps0
+--stack-stitching
+--data-limit-mb=1000
+--disk-space-limit=0
+--mrte-type=java
+--stack-unwind-limit=8388608
+--itt-config=frame
+--stackwalk=offline
+--mrte-mode=auto
+--type=cpu:counters:nostack
+--type=cpu:nostack
+--interval=100
+--app-working-dir=/home/luciano-alfredo/Documentos/2-Projectos/6-Projecto CPD/computa-o-Paralela-e-Distribuida/exercicios
+--
+/home/luciano-alfredo/Documentos/2-Projectos/6-Projecto CPD/computa-o-Paralela-e-Distribuida/exercicios/test

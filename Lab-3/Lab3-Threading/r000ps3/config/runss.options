@@ -1,0 +1,18 @@
+-r
+/home/luciano-alfredo/Documentos/2-Projectos/6-Projecto CPD/computa-o-Paralela-e-Distribuida/Lab-3/Lab3-Threading/r000ps3
+--stack-stitching
+--data-limit-mb=1000
+--disk-space-limit=0
+--mrte-type=java
+--stack-unwind-limit=8388608
+--itt-config=frame
+--stackwalk=offline
+--mrte-mode=auto
+--type=cpu:counters:nostack
+--type=cpu:nostack
+--interval=100
+--type=threading:stack
+--type=waiting:stack
+--app-working-dir=/home/luciano-alfredo/Documentos/2-Projectos/6-Projecto CPD/computa-o-Paralela-e-Distribuida/Lab-3
+--
+/home/luciano-alfredo/Documentos/2-Projectos/6-Projecto CPD/computa-o-Paralela-e-Distribuida/Lab-3/programa
